@@ -4,9 +4,13 @@ const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omni:omni@cluster0-kbcal.mongodb.net/omniweek10?retryWrites=true&w=majority', {
+let stringConnect = 'mongodb+srv://omni:omni@cluster0-kbcal.mongodb.net/omniweek10?retryWrites=true&w=majority';
+
+mongoose.connect(stringConnect, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
 });
 
 app.use(express.json());
